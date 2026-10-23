@@ -93,7 +93,7 @@ Then open http://localhost:8000 and log in with `demo` / `youandme-demo`. The da
 public/              web root: pages, form handlers, a JSON endpoint for live updates, assets
 includes/            database connection and helpers, session, CSRF, login check, shared chatroom parts
 Dockerfile           web server image: Apache and PHP
-docker/              PHP error settings
+docker/              PHP settings
 youandme.sql         database schema and sample data
 docker-compose.yml   local setup: web, MySQL, Adminer
 render.yaml          Render deployment config
