@@ -1,0 +1,41 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: youandme
+      DB_USER: youandme
+      DB_PASSWORD: localdev
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.4
+    # Same as Aiven: primary keys required, ANSI and strict SQL mode
+    command: ["--sql-require-primary-key=ON", "--sql-mode=ANSI,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION"]
+    environment:
+      MYSQL_DATABASE: youandme
+      MYSQL_USER: youandme
+      MYSQL_PASSWORD: localdev
+      MYSQL_ROOT_PASSWORD: localdev
+    volumes:
+      - ./youandme.sql:/docker-entrypoint-initdb.d/youandme.sql
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+volumes:
+  db_data:

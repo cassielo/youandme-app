@@ -1,0 +1,76 @@
+/* Chatroom page: messages, bubbles and the message box */
+.chat-messages {
+    height: 380px;
+    overflow-y: auto;
+    padding: 0 10px 10px 0;
+}
+
+.chat-msg {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.chat-msg-mine {
+    justify-content: flex-end;
+}
+
+.chat-avatar {
+    flex: none;
+    width: 35px;
+    height: 35px;
+    margin-top: 18px;
+}
+
+.chat-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 70%;
+}
+
+.chat-msg-mine .chat-body {
+    align-items: flex-end;
+}
+
+.chat-name {
+    font-size: 12px;
+    color: #797979;
+    margin: 0 0 3px 2px;
+}
+
+.chat-bubble {
+    margin: 0;
+    padding: 8px 12px;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.chat-time {
+    font-size: 11px;
+    color: #aaa;
+    margin: 3px 2px 0;
+}
+
+/* Message box at the bottom of the chat panel */
+.chat-panel {
+    position: relative;
+}
+
+.chat-input {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 20px;
+}
+
+.chat-form {
+    display: flex;
+    gap: 6px;
+}
+
+.chat-form .form-control {
+    flex: 1;
+    min-width: 0;
+}
