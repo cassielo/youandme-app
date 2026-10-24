@@ -1,6 +1,6 @@
 # You and Me
 
-A real-time chat app for meeting people through topic rooms: anyone can open a room on a subject, and anyone who shares the interest can join.
+A real-time chat app for meeting people through topic rooms.
 
 🔗 **Live demo:** https://youandme-app.onrender.com
 
@@ -8,54 +8,31 @@ A real-time chat app for meeting people through topic rooms: anyone can open a r
 
 🎓 **Background:** Team final project for Database Management, National Yang Ming Chiao Tung University, spring 2017
 
-![You and Me home page](docs/home.png)
+![You and Me Chatroom page](docs/chatroom.png)
 
 ---
 
 ## Features
 
 - **My Profile** — update your display name, avatar and password
-
-  ![My Profile](docs/my-profile.png)
-
 - **Join Chatroom** — browse open rooms and join any that interest you
-
-  ![Join Chatroom](docs/join-chatroom.png)
-
 - **Create Chatroom** — open a new room with a name and an introduction
-
-  ![Create Chatroom](docs/create-chatroom.png)
-
 - **My Chatroom** — find every room you have joined in one place
-
-  ![My Chatroom](docs/my-chatroom.png)
-
 - **Chatroom** — chat in real time, with new messages and members appearing live
-
-  ![Chatroom](docs/chatroom.png)
 
 ---
 
 ## How It Works
 
-### Architecture
-
 ![Architecture](docs/architecture.svg)
 
-### Data Model
+---
+
+## Data Model
 
 ![Data model](docs/data-model.svg)
 
 Users and rooms are linked three ways: `list` records who joined which room, `chat` holds every message with its sender and room, and each room has one manager.
-
-### Tech Stack
-
-| Layer | Tools |
-|---|---|
-| Backend | PHP 8.2, PDO, Apache |
-| Database | MySQL 8.4 on Aiven |
-| Frontend | Bootstrap 3, jQuery, Fetch API |
-| Hosting | Render, Docker |
 
 ---
 
@@ -73,6 +50,17 @@ The live demo is public, so the code covers the main OWASP Top 10 risks:
 
 ---
 
+## Tech Stack
+
+| Layer | Tools |
+|---|---|
+| Backend | PHP 8.2, PDO, Apache |
+| Database | MySQL 8.4 on Aiven |
+| Frontend | Bootstrap 3, jQuery, Fetch API |
+| Hosting | Render, Docker |
+
+---
+
 ## Running Locally
 
 Requires Docker.
@@ -83,7 +71,7 @@ cd youandme-app
 docker compose up --build
 ```
 
-Then open http://localhost:8000 and log in with `demo` / `youandme-demo`. The database is created from `youandme.sql` on the first start.
+Then open http://localhost:8000.
 
 ---
 
@@ -97,5 +85,5 @@ docker/              PHP settings
 youandme.sql         database schema and sample data
 docker-compose.yml   local setup: web, MySQL, Adminer
 render.yaml          Render deployment config
-docs/                README screenshots and diagrams
+docs/                README images and diagrams
 ```
